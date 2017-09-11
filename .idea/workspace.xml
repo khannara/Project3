@@ -24,11 +24,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gerenate_many_from_a_list.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gerenate_many_from_a_list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rebus_/gerenate_many_from_a_list.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
               <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,6 +82,7 @@
         <option value="$PROJECT_DIR$/rebus_/index.php" />
         <option value="$PROJECT_DIR$/README.txt" />
         <option value="$PROJECT_DIR$/rebus_/gerenate_many_from_a_list.php" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -252,7 +263,7 @@
       <workItem from="1505165819191" duration="527000" />
       <workItem from="1505166624646" duration="326000" />
       <workItem from="1505167114981" duration="325000" />
-      <workItem from="1505168254007" duration="7000" />
+      <workItem from="1505168254007" duration="76000" />
     </task>
     <task id="LOCAL-00001" summary="delete file">
       <created>1504998750031</created>
@@ -275,11 +286,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505167915596</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge branch 'master' of https://github.com/khannara/Project3&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <created>1505168313792</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1505168313792</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4874000" />
+    <option name="totallyTimeSpent" value="4943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="24" width="1613" height="883" extended-state="6" />
@@ -326,7 +344,8 @@
     <MESSAGE value="Added generate_many_from_a_list.php,many_from_a_list.php and the icon/links to those files from admin.php" />
     <MESSAGE value="change name for title on generate_many_from_a_list.php" />
     <MESSAGE value="deleted workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted workspace" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/khannara/Project3&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/khannara/Project3&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -662,17 +681,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rebus_/gerenate_many_from_a_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
