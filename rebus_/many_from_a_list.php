@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/custom_nav.css" type="text/css">
 </head>
-<title>Rebus</title>
+<title>Rebus Many-From-A-List</title>
 <body>
 <?PHP
 session_start();
@@ -21,39 +21,21 @@ require('session_validation.php');
 ?>
 <?PHP echo getTopNav(); ?>
 <div class="divTitle" align="center">
-    <font class="font">Rebus Puzzle</font>
+    <font class="font">Rebus Puzzle (Many from a List)</font>
 </div>
 <br>
 <div>
-    <form id="myform" action="puzzle.php" method="post" onsubmit="process()">
+    <form method="post" action="generate_many_from_a_list.php">
         <div class="container">
-            <div class="inputDiv"><input type="textbox" name="puzzleWord" id="name-textbox"
-                                         placeholder="Enter your Name to see the Puzzle"
+            <div class="inputDiv"><input type="textbox" name="puzzle" id="name-textbox"
                                          onclick="this.placeholder = ''"/>
             </div>
             <br>
             <div style="text-align:center">
-                <?PHP
-                echo '<input class="main-buttons" type="submit" name="randomPlay" value="Show me.." />';
-                if (adminSessionExists()) {
-                    //echo '<input class="main-buttons" type="submit" name="iDesign" value="I will design... (Option 1)" />';
-                    echo '<input class="main-buttons" type="submit" name="iDesign" value="I will design..." />';
-                }
-                ?>
+                <input class="main-buttons" type="submit" value="Show me.."/>
             </div>
         </div>
     </form>
 </div>
-<script>
-    function process() {
-        var form = document.getElementById('myform');
-        var elements = form.elements;
-        var values = [];
-
-        values.push(encodeURIComponent(elements[0].name) + '=' + encodeURIComponent(elements[0].value));
-
-        form.action += '?' + values.join('&');
-    }
-</script>
 </body>
 </html>
