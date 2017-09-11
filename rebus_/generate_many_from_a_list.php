@@ -1,10 +1,3 @@
-/**
- * Created by IntelliJ IDEA.
- * User: Izhar Osman, Khannaroth Phay
- * Date: 9/11/2017
- * Time: 3:20 PM
- */
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,5 +18,9 @@
 <?php
 
 ?>
+
+<p> 1 2 3 4
+
+</p>
 </body>
 </html>
