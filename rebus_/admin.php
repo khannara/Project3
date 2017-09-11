@@ -84,9 +84,11 @@ if ($error) {
         <td align="center"><a href="uploadPage.php">Import</a></td>
         <td align="center"><a href="#">Configure</a></td>
     </tr>
+
     <tr class="separator">
         <td></td>
     </tr>
+
     <tr>
         <td align="center">
             <a href="backup.php" onclick="backUpMessage()"><img src="./pic/backUp.png" class="adminThumbnailSize"></a>
@@ -104,11 +106,12 @@ if ($error) {
         </td>
         <td align="center">
             <a target="_blank" href="one_to_many_plus.php"><img src="./pic/oneWordManyPuzzlesPlus.png"
-                                                                class="adminThumbnailSize">
+                                                                class="adminThumbnailSize"></a>
         </td>
         <td align="center">
             <a href="userManual.php"><img src="./pic/user_manual.png" class="adminThumbnailSize"></a>
         </td>
+
     </tr>
     <tr>
         <td align="center"><a href="backup.php" onclick="backUpMessage()">Backup</a></td>
@@ -118,6 +121,25 @@ if ($error) {
         <td align="center"><a target="_blank" href="one_to_many_plus.php">One Word <br> Many Puzzle <br> Plus</a></td>
         <td align="center"><a href="userManual.php">User <br> Manual</a></td>
     </tr>
+
+    <tr>
+
+    </tr>
+
+    <tr class="separator">
+        <td></td>
+    </tr>
+
+    <tr>
+        <td align="center">
+            <a href="many_from_a_list.php"><img src="./pic/many_from_a_list.png" class="adminThumbnailSize"></a>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="center"><a target="_blank" href="many_from_a_list.php">Many From <br> A List</a></td>
+    </tr>
+
 </table>
 </div>
 
