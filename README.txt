@@ -1,2 +1,1 @@
-hello this is a test by izhar
-added text
+place bashrc in users folder to use alias's
