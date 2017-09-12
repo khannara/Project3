@@ -15,12 +15,34 @@
 </head>
 <title>Rebus Generate_Many-From-A-List</title>
 <body>
-<?php
 
-?>
+<div class="divTitle" align="center">
+    <font class="font">Rebus Puzzle (Many from a List)</font>
+</div>
+<div>
+    <p>Input Word List:
+        <!-- Code for displaying the input of words -->
+        <?php
 
-<p> 1 2 3 4
+        $rows = sizeof($wordsArray);
 
-</p>
+        for ($input = 0; $input < $rows; $input++) {
+            $incrementedValue = $input + 1;
+            echo "$incrementedValue. $wordsArray[$input]";
+        }
+        ?>
+        <br>
+        Puzzles
+        <?php
+
+        $rows = sizeof($wordsArray);
+
+        for ($input = 0; $input < $rows; $input++) {
+            $incrementedValue = $input + 1;
+            echo "$incrementedValue. $wordsArray[$input]";
+        }
+        ?>
+    </p>
+</div>
 </body>
 </html>
