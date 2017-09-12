@@ -17,9 +17,27 @@
 <body>
 <?php
 
+array = [];
+for (i = 0; i < array.len; i ++){
+
+    wordCheck = array[i];
+    for (x = 0; x < wordCheck.len; x ++){
+        for (z = 0; z < array.len; z ++){
+
+            wordCheck[x] == array[z]
+
+        }
+    }
+}
+
+function character($chr,$word){
+
+}
+
+
 ?>
 
-<p> 1 2 3 4
+<p>
 
 </p>
 </body>
