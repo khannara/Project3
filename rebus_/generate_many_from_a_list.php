@@ -15,12 +15,14 @@
 </head>
 <title>Rebus Generate_Many-From-A-List</title>
 <body>
-<?php
 
-?>
+<div class="divTitle" align="center">
+    <font class="font">Rebus Puzzle (Many from a List)</font>
+</div>
+<div>
+    <p> 1 2 3 4
 
-<p> 1 2 3 4
-
-</p>
+    </p>
+</div>
 </body>
 </html>

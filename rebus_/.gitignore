@@ -1,4 +1,4 @@
 /.brackets.json
 /bootstrap.php
-/.idea/*
-
+.idea/*
+.idea/workspace.xml
