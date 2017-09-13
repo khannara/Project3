@@ -23,12 +23,15 @@ for (i = 0; i < array.len; i ++){
 
     wordCheck = array[i];
     for (x = 0; x < wordCheck.len; x ++){
+        chrCheck = wordCheck[x]
+
         for (z = 0; z < array.len; z ++){
-
-            wordCheck[x] == array[z]
-
+            chrCheck == array[z]
+                //call function to check word if it contains chr and then return index number
+                //call to see if array word contains chr if true index chr index
         }
     }
+    //print out in format
 }
 
 function character($chr,$word){
