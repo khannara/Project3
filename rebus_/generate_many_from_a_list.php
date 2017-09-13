@@ -6,6 +6,8 @@
     <?PHP
     session_start();
     require('session_validation.php');
+    require('ManyFromAListFunctions.php');
+    require('word_processor.php');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -62,7 +64,7 @@ for ($i = 0; $i < count($wordsArray); $i++) {
                 continue;
 
             // Set the "destination" word as word to be checked
-            $wordCheck = $wordsArray($j);
+            $wordCheck = $wordsArray[$j];
 
             // Check if word is still available
             $wordIsAvailable = $manyFromAListFunctions->isWordAvailable($wordCheck);
