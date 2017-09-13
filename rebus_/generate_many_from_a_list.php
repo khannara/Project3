@@ -15,7 +15,9 @@
         $wordsArray = explode("\n", $wordInputFromTextBox);
         // Do something about blank entries
 
-        $manyFromAListFunctions = new ManyFromAListFunctions();
+        $firstValidWordInArray = $wordsArray[0];
+
+        $manyFromAListFunctions = new ManyFromAListFunctions($firstValidWordInArray);
     } else {
 //        $url = "index.php";
 //
@@ -69,7 +71,7 @@ for ($i = 0; $i < count($wordsArray); $i++) {
             if ($wordIsAvailable) {
 
                 // Return index of char if it exist in word, otherwise will get null
-                $indexOfCharInWord = $manyFromAListFunctions->getCharacterIndexInWord($sourceWord[$char], $wordCheck);
+                $indexOfCharInWord = $manyFromAListFunctions->getCharacterIndexInWord($characterCheck, $wordCheck);
 
                 // If index is found
                 if ($indexOfCharInWord != null) {
