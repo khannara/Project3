@@ -1,6 +1,30 @@
+
 <!DOCTYPE html>
 <html>
 <head>
+
+    <?PHP
+    session_start();
+    require('session_validation.php');
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        // Set starting variables gotten from post
+        $wordInputFromTextBox = $_POST["wordInput"];
+
+        $wordsArray = explode("\n", $wordInputFromTextBox);
+        // Do something about blank entries
+
+        $manyFromAListFunctions = new ManyFromAListFunctions();
+    } else {
+//        $url = "index.php";
+//
+//        header("Location: " . $url);
+        die();
+    }
+
+    ?>
+    <?PHP echo getTopNav(); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,55 +39,86 @@
 </head>
 <title>Rebus Many-From-A-List</title>
 <body>
-<<<<<<< HEAD
 <?php
 
-array = [];
-for (i = 0; i < array.len; i ++){
+for ($i = 0; $i < count($wordsArray); $i++) {
+    // Set the source word "input"
+    $sourceWord = $wordsArray[$i];
 
-    wordCheck = array[i];
-    for (x = 0; x < wordCheck.len; x ++){
-        chrCheck = wordCheck[x]
+    $sourceWordCharactersArray = str_split($sourceWord);
 
-        for (z = 0; z < array.len; z ++){
-            chrCheck == array[z]
-                //call function to check word if it contains chr and then return index number
-                //call to see if array word contains chr if true index chr index
+    // Check if any of the characters exist in destination word
+    for ($char = 0; $char < strlen($sourceWord); $char++) {
+
+        $characterCheck = $sourceWordCharactersArray[$char];
+
+        // Find 'unused' word after source word
+        for ($j = 0; $j < count($wordsArray); $j++) {
+
+            // If index of array is the same, then it's the same source word so skip to next word
+            if ($i == $j)
+                continue;
+
+            // Set the "destination" word as word to be checked
+            $wordCheck = $wordsArray($j);
+
+            // Check if word is still available
+            $wordIsAvailable = $manyFromAListFunctions->isWordAvailable($wordCheck);
+
+            // If word is available...
+            if ($wordIsAvailable) {
+
+                // Return index of char if it exist in word, otherwise will get null
+                $indexOfCharInWord = $manyFromAListFunctions->getCharacterIndexInWord($sourceWord[$char], $wordCheck);
+
+                // If index is found
+                if ($indexOfCharInWord != null) {
+
+                    // get the length of $wordCheck
+                    $lengthOfWordCheck = strlen($wordCheck);
+
+                    // FOUND MATCH: $indexOfCharInWord/$lengthOfWordCheck ($wordCheck )
+
+                    // Go to next letter
+                    break;
+                }
+            }
+
         }
     }
-    //print out in format
-}
-
-function character($chr,$word){
 
 }
+//array = [];
+//for (i = 0; i < array.len; i ++){
+//
+//    wordCheck = array[i];
+//    for (x = 0; x < wordCheck.len; x ++){
+//        chrCheck = wordCheck[x]
+//
+//        for (z = 0; z < array.len; z ++){
+//            chrCheck == array[z]
+//                //call function to check word if it contains chr and then return index number
+//                //call to see if array word contains chr if true index chr index
+//        }
+//    }
+//    //print out in format
+//}
+//
+//function character($chr,$word){
+//
+//}
 
-
-=======
-<?PHP
-session_start();
-require('session_validation.php');
->>>>>>> 88108e96d1f0545ec6ff1bbe88b11c7dc24feaf1
 ?>
-<?PHP echo getTopNav(); ?>
+
 <div class="divTitle" align="center">
     <font class="font">Rebus Generate Many from a List</font>
 </div>
 <br>
 <div>
     <p>Input Word List:
-
-
     <br />
-
         Puzzles
-
-<<<<<<< HEAD
-<p>
-=======
     </p>
->>>>>>> 88108e96d1f0545ec6ff1bbe88b11c7dc24feaf1
-
 </div>
 </body>
 </html>

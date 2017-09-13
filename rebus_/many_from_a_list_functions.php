@@ -25,7 +25,6 @@ class ManyFromAListFunctions
             for ($character = 0; $character <= strlen($word); $character++) {
                 if ($char == $wordArray[$character])
                     return $character;
-
             }
         }
 
@@ -36,9 +35,9 @@ class ManyFromAListFunctions
     {
         for ($i = 0; $i <= count($this->foundWords); $i++) {
             if ($word == $this->foundWords[$i])
-                return true;
+                return false;
         }
 
-        return false;
+        return true;
     }
 }
