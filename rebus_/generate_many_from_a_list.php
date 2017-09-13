@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +28,7 @@
 
     ?>
     <?PHP echo getTopNav(); ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,6 +43,7 @@
 </head>
 <title>Rebus Many-From-A-List</title>
 <body>
+
 <?php
 
 for ($i = 0; $i < count($wordsArray); $i++) {
@@ -114,15 +115,23 @@ for ($i = 0; $i < count($wordsArray); $i++) {
 
 ?>
 
-<div class="divTitle" align="center">
-    <font class="font">Rebus Generate Many from a List</font>
-</div>
-<br>
-<div>
-    <p>Input Word List:
-    <br />
-        Puzzles
-    </p>
+<div class="puzzleResult" align="left">
+    <h3><b>Input Word List:</b></h3>
+    <br/>
+    <?php
+
+    $rows = sizeof($wordsArray);
+
+    for ($input = 0; $input < $rows; $input++) {
+        $incrementedValue = $input + 1;
+        echo "$wordsArray[$input]";
+        echo ", &nbsp";
+    }
+    ?>
+    <br/>
+    <h3><b>Puzzles</b></h3>
+    <br/>
+
 </div>
 </body>
 </html>
