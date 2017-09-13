@@ -1,99 +1,44 @@
 <?php
-class manyfromalistfunctions
+
+class ManyFromAListFunctions
 {
-    private $wordsInputArray;
-    private $maxcols = 4;
-    private $sizeOfWordsInputArray;
     private $wordProcessor;
+    private $foundWords;
 
-    public function __construct($wordsInputArray)
+    public function __construct()
     {
-        $this->wordsInputArray = $wordsInputArray;
-        trim(implode($wordsInputArray), "\n ");
-        $this->sizeOfWordsInputArray = count($this->wordsInputArray);
         $this->wordProcessor = new wordProcessor(" ", "telugu");
+        $this->foundWords = array();
     }
 
-    function getHitCountBetweenWords($word1, $word2, $simpleMode)
-    {
-        $charactersFound = array();
-        $lengthOfWord = strlen($word1);
-        $this->wordProcessor->setWord($word2, "telugu");
-        $count = 0;
-
-        for ($j = 0; $j <= $lengthOfWord; $j++) {
-            $char = substr($word1, $j, 1);
-            $hitCount = $this->wordProcessor->containsChar($char);
-
-            if ($hitCount) {
-                $count++;
-                array_push($charactersFound, $char);
-
-                if ($simpleMode)
-                    break;
-            }
-        }
-
-        return $charactersFound;
-    }
-
-    function getHitCount($isSimpleMode)
-    {
-        for ($firstWord = 0; $firstWord < $this->sizeOfWordsInputArray; $firstWord++) {
-            $count = 0;
-            echo $this->wordsInputArray[$firstWord] . "-";
-            $lengthOfWord = strlen($this->wordsInputArray[$firstWord]);
-
-            for ($secondWord = 0; $secondWord < $this->sizeOfWordsInputArray; $secondWord++) {
-                if ($firstWord == $secondWord)
-                    continue;
-
-                echo $this->wordsInputArray[$secondWord] . "-";
-                $this->wordProcessor->setWord($this->wordsInputArray[$secondWord], "telugu");
-
-                for ($j = 0; $j <= $lengthOfWord; $j++) {
-                    $char = substr($this->wordsInputArray[$firstWord], $j, 1);
-                    $hitCount = $this->wordProcessor->containsChar($char);
-
-                    if ($hitCount) {
-                        $count++;
-
-                        if ($isSimpleMode)
-                            break;
-                    }
-                }
-            }
-            echo $count;
-            echo "<br />\n";
-        }
-
-        return $count;
-    }
-
-    function wordContainsChar($word, $char)
+    function getCharacterIndexInWord($char, $word)
     {
         $this->wordProcessor->setWord($word, "telugu");
-        return $this->wordProcessor->containsChar($char);
-    }
+        $wordContainsChar = $this->wordProcessor->containsChar($char);
 
-    function generateSolutionTable()
-    {
-        for ($arrayIndex = 0; $arrayIndex < $this->sizeOfWordsInputArray; $arrayIndex++) {
-            echo "<tr>";
+        if ($wordContainsChar) {
 
-            for ($column = 0; $column < $this->maxcols; $column++) {
+            // Save this word to array
+            array_push($this->foundWords, $word);
 
-                if ($column == 0)
-                    echo "<td>" . $this->wordsInputArray[$arrayIndex] . "</td>";
-                else
-                    echo "<td>Filler</td>";
+            $wordArray = str_split($word);
+            for ($character = 0; $character <= strlen($word); $character++) {
+                if ($char == $wordArray[$character])
+                    return $character;
+
             }
-            echo "</tr>";
         }
+
+        return null;
     }
 
-    function boldLetterInWord($word, $letter)
+    function isWordAvailable($word)
     {
-        return preg_replace("/$letter/i", '<b>$0</b>', $word);
+        for ($i = 0; $i <= count($this->foundWords); $i++) {
+            if ($word == $this->foundWords[$i])
+                return true;
+        }
+
+        return false;
     }
 }
