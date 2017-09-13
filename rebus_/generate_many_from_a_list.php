@@ -13,8 +13,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/custom_nav.css" type="text/css">
 </head>
-<title>Rebus Generate_Many-From-A-List</title>
+<title>Rebus Many-From-A-List</title>
 <body>
+<<<<<<< HEAD
 <?php
 
 array = [];
@@ -35,10 +36,31 @@ function character($chr,$word){
 }
 
 
+=======
+<?PHP
+session_start();
+require('session_validation.php');
+>>>>>>> 88108e96d1f0545ec6ff1bbe88b11c7dc24feaf1
 ?>
+<?PHP echo getTopNav(); ?>
+<div class="divTitle" align="center">
+    <font class="font">Rebus Generate Many from a List</font>
+</div>
+<br>
+<div>
+    <p>Input Word List:
 
+
+    <br />
+
+        Puzzles
+
+<<<<<<< HEAD
 <p>
+=======
+    </p>
+>>>>>>> 88108e96d1f0545ec6ff1bbe88b11c7dc24feaf1
 
-</p>
+</div>
 </body>
 </html>
