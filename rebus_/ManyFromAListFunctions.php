@@ -14,12 +14,13 @@ class ManyFromAListFunctions
 
     function getCharacterIndexInWord($char, $word)
     {
-        echo "char: ".$char." word: ".$word;
+        var_dump($char,$word);
+//        echo "<br> ------------------ char: ".$char." word: ".$word;
         $this->wordProcessor->setWord($word, "telugu");
         $wordContainsChar = $this->wordProcessor->containsChar($char);
-
+        echo "<br>WORD CONTAINS: ".$wordContainsChar."<br>";
         if ($wordContainsChar) {
-
+            echo "in if of word contians<br>";
             // Save this word to array
             array_push($this->foundWords, $word);
 
@@ -35,12 +36,11 @@ class ManyFromAListFunctions
 
     function isWordAvailable($word)
     {
-//        echo $word;
-        for ($i = 0; $i <= count($this->foundWords); $i++) {
-            if ($word == $this->foundWords[0][$i])
+        foreach($this->foundWords as $foundWord){
+            if ($word == $foundWord){
                 return false;
+            }
         }
-
         return true;
     }
 }
