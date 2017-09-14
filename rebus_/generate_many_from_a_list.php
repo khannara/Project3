@@ -14,10 +14,8 @@
 
         // Set starting variables gotten from post
         $wordInputFromTextBox = $_POST["wordInput"];
-
         $wordsArray = explode("\n", $wordInputFromTextBox);
         // Do something about blank entries
-
         $firstValidWordInArray = $wordsArray[0];
 
         $manyFromAListFunctions = new ManyFromAListFunctions($firstValidWordInArray);
@@ -55,7 +53,7 @@ for ($i = 0; $i < count($wordsArray); $i++) {
     $formateStr = null;
     $formateStr.= $sourceWord." = ";
 
-    echo "---- formated String start: ".$formateStr."<br>";
+//    echo "---- formated String start: ".$formateStr."<br>";
 
     // Check if any of the characters exist in destination word
     for ($char = 0; $char < strlen($sourceWord); $char++) {
@@ -63,35 +61,25 @@ for ($i = 0; $i < count($wordsArray); $i++) {
         $characterCheck = $sourceWordCharactersArray[$char];
         // Find 'unused' word after source word
         for ($j = 0; $j < count($wordsArray); $j++) {
-//            echo "- 1<br>";
             // If index of array is the same, then it's the same source word so skip to next word
-            echo " ||i--".$i;
-            echo " - j--".$j."--||"."<br>";
             if ($i == $j) {
-//                echo "- 2<br>";
                 continue;
             }
             // Set the "destination" word as word to be checked
-            $wordCheck = $wordsArray[$j];
-//            echo "word check ".$wordCheck."\n";
+            $wordCheck = trim($wordsArray[$j]);
             // Check if word is still available
             $wordIsAvailable = $manyFromAListFunctions->isWordAvailable($wordCheck);
-            echo "-- is word avail ".$wordIsAvailable;
             // If word is available...
             if ($wordIsAvailable) {
-//                echo " - 2 word is avail -- wordcheck: ".$wordCheck."- char check: ".$characterCheck;
                 // Return index of char if it exist in word, otherwise will get null
                 $indexOfCharInWord = $manyFromAListFunctions->getCharacterIndexInWord($characterCheck, $wordCheck);
-//                echo "| - char index in word".$indexOfCharInWord."<br>";
                 // If index is found
                 if ($indexOfCharInWord != null) {
-                    echo "- 3 index of char not null<br>";
                     // get the length of $wordCheck
                     $lengthOfWordCheck = strlen($wordCheck);
 
                     // FOUND MATCH: $indexOfCharInWord/$lengthOfWordCheck ($wordCheck )
-                    $formateStr = $formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." (".$wordCheck.")";
-//                    echo "output".$formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." "."(".$wordCheck.")<br>";
+                    $formateStr = $formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." (".$wordCheck.") + ";
                     // Go to next letter
                     break;
                 }
@@ -99,7 +87,7 @@ for ($i = 0; $i < count($wordsArray); $i++) {
 
         }
     }
-    echo "the formated string ".$formateStr."<br>";
+    echo $formateStr."<br>";
 }
 ?>
 

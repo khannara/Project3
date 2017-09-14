@@ -28,12 +28,7 @@ require('session_validation.php');
     <form method="post" action="generate_many_from_a_list.php">
         <div class="container">
                 <textarea class="form-control" rows="10" id="input" name="wordInput"></textarea>
-            <?php
 
-                $wordsArray = array_values(array_filter($wordsArray, function ($word) {
-                return trim($word);
-            }));
-            ?>
             <br>
             <div style="text-align:center">
                 <input class="main-buttons" type="submit" value="Show me.."/>
