@@ -117,15 +117,13 @@ for ($i = 0; $i < count($wordsArray); $i++) {
 
 <div class="puzzleResult" align="left">
     <h3><b>Input Word List:</b></h3>
-    <br/>
-    <?php
 
+    <?php
     $rows = sizeof($wordsArray);
 
     for ($input = 0; $input < $rows; $input++) {
         $incrementedValue = $input + 1;
-        echo "$wordsArray[$input]";
-        echo ", &nbsp";
+        echo "$wordsArray[$input]" . ", &nbsp;";
     }
     ?>
     <br/>
