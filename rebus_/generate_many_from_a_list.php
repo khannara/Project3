@@ -77,12 +77,13 @@ for ($i = 0; $i < count($wordsArray); $i++) {
                 if ($indexOfCharInWord != null) {
                     // get the length of $wordCheck
                     $lengthOfWordCheck = strlen($wordCheck);
-                    if($i === count($wordsArray) - 1){
 
-                        $formateStr = $formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." (".$wordCheck.")";
-                    }
                     // FOUND MATCH: $indexOfCharInWord/$lengthOfWordCheck ($wordCheck )
-                    $formateStr = $formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." (".$wordCheck.") + ";
+                    $formateStr = $formateStr .= $indexOfCharInWord . "/" . $lengthOfWordCheck . " (" . $wordCheck . ")";
+
+                    if ($char != strlen($sourceWord) - 2)
+                        $formateStr = $formateStr . " + ";
+
                     // Go to next letter
                     break;
                 }
