@@ -76,8 +76,8 @@ class wordProcessor {
 			return $this->getLogicalChars();
 		}else{
 			include_once 'telugu_parser.php';
-			$this->code_points = parseToCodePoints($word);
-			$this->logical_chars = parseToLogicalCharacters($this->getCodePoints());
+//			$this->code_points = parseToCodePoints($word);
+//			$this->logical_chars = parseToLogicalCharacters($this->getCodePoints());
 			return $this->getLogicalChars();
 		}
 	}

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
     require('session_validation.php');
     require('ManyFromAListFunctions.php');
     require('word_processor.php');
+    require('telugu_parser.php');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -28,7 +30,6 @@
 
     ?>
     <?PHP echo getTopNav(); ?>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +44,6 @@
 </head>
 <title>Rebus Many-From-A-List</title>
 <body>
-
 <?php
 
 for ($i = 0; $i < count($wordsArray); $i++) {
@@ -52,38 +52,46 @@ for ($i = 0; $i < count($wordsArray); $i++) {
 
     $sourceWordCharactersArray = str_split($sourceWord);
 
+    $formateStr = null;
+    $formateStr.= $sourceWord." = ";
+
+    echo "---- formated String start: ".$formateStr."<br>";
+
     // Check if any of the characters exist in destination word
     for ($char = 0; $char < strlen($sourceWord); $char++) {
 
         $characterCheck = $sourceWordCharactersArray[$char];
-
         // Find 'unused' word after source word
         for ($j = 0; $j < count($wordsArray); $j++) {
-
+            echo "- 1<br>";
             // If index of array is the same, then it's the same source word so skip to next word
-            if ($i == $j)
+            echo " ||i--".$i;
+            echo " - j--".$j."--||"."<br>";
+            if ($i == $j) {
+                echo "- 2<br>";
                 continue;
-
+            }
             // Set the "destination" word as word to be checked
             $wordCheck = $wordsArray[$j];
-
+//            echo "word check ".$wordCheck."\n";
             // Check if word is still available
             $wordIsAvailable = $manyFromAListFunctions->isWordAvailable($wordCheck);
-
+            echo "-- is word avail ".$wordIsAvailable;
             // If word is available...
             if ($wordIsAvailable) {
-
+                echo " - 2 word is avail -- wordcheck: ".$wordCheck."- char check: ".$characterCheck;
                 // Return index of char if it exist in word, otherwise will get null
                 $indexOfCharInWord = $manyFromAListFunctions->getCharacterIndexInWord($characterCheck, $wordCheck);
-
+                echo "| - char index in word".$indexOfCharInWord."<br>";
                 // If index is found
                 if ($indexOfCharInWord != null) {
-
+                    echo "- 3 index of char not null<br>";
                     // get the length of $wordCheck
                     $lengthOfWordCheck = strlen($wordCheck);
 
                     // FOUND MATCH: $indexOfCharInWord/$lengthOfWordCheck ($wordCheck )
-
+                    $formateStr = $formateStr + [$indexOfCharInWord] +"/"+[$lengthOfWordCheck] +" "+ "("+[$wordCheck]+")";
+                    echo "output".$formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." "."(".$wordCheck.")<br>";
                     // Go to next letter
                     break;
                 }
@@ -91,7 +99,7 @@ for ($i = 0; $i < count($wordsArray); $i++) {
 
         }
     }
-
+    echo "the formated string ".$formateStr."<br>";
 }
 //array = [];
 //for (i = 0; i < array.len; i ++){

@@ -14,6 +14,7 @@ class ManyFromAListFunctions
 
     function getCharacterIndexInWord($char, $word)
     {
+        echo "char: ".$char." word: ".$word;
         $this->wordProcessor->setWord($word, "telugu");
         $wordContainsChar = $this->wordProcessor->containsChar($char);
 
@@ -34,8 +35,9 @@ class ManyFromAListFunctions
 
     function isWordAvailable($word)
     {
+//        echo $word;
         for ($i = 0; $i <= count($this->foundWords); $i++) {
-            if ($word == $this->foundWords[$i])
+            if ($word == $this->foundWords[0][$i])
                 return false;
         }
 
