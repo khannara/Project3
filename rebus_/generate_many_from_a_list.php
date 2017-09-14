@@ -8,7 +8,7 @@
     require('session_validation.php');
     require('ManyFromAListFunctions.php');
     require('word_processor.php');
-    require('telugu_parser.php');
+    require_once('telugu_parser.php');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -63,12 +63,12 @@ for ($i = 0; $i < count($wordsArray); $i++) {
         $characterCheck = $sourceWordCharactersArray[$char];
         // Find 'unused' word after source word
         for ($j = 0; $j < count($wordsArray); $j++) {
-            echo "- 1<br>";
+//            echo "- 1<br>";
             // If index of array is the same, then it's the same source word so skip to next word
             echo " ||i--".$i;
             echo " - j--".$j."--||"."<br>";
             if ($i == $j) {
-                echo "- 2<br>";
+//                echo "- 2<br>";
                 continue;
             }
             // Set the "destination" word as word to be checked
@@ -79,10 +79,10 @@ for ($i = 0; $i < count($wordsArray); $i++) {
             echo "-- is word avail ".$wordIsAvailable;
             // If word is available...
             if ($wordIsAvailable) {
-                echo " - 2 word is avail -- wordcheck: ".$wordCheck."- char check: ".$characterCheck;
+//                echo " - 2 word is avail -- wordcheck: ".$wordCheck."- char check: ".$characterCheck;
                 // Return index of char if it exist in word, otherwise will get null
                 $indexOfCharInWord = $manyFromAListFunctions->getCharacterIndexInWord($characterCheck, $wordCheck);
-                echo "| - char index in word".$indexOfCharInWord."<br>";
+//                echo "| - char index in word".$indexOfCharInWord."<br>";
                 // If index is found
                 if ($indexOfCharInWord != null) {
                     echo "- 3 index of char not null<br>";
@@ -90,8 +90,8 @@ for ($i = 0; $i < count($wordsArray); $i++) {
                     $lengthOfWordCheck = strlen($wordCheck);
 
                     // FOUND MATCH: $indexOfCharInWord/$lengthOfWordCheck ($wordCheck )
-                    $formateStr = $formateStr + [$indexOfCharInWord] +"/"+[$lengthOfWordCheck] +" "+ "("+[$wordCheck]+")";
-                    echo "output".$formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." "."(".$wordCheck.")<br>";
+                    $formateStr = $formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." (".$wordCheck.")";
+//                    echo "output".$formateStr.=$indexOfCharInWord."/".$lengthOfWordCheck." "."(".$wordCheck.")<br>";
                     // Go to next letter
                     break;
                 }
@@ -101,26 +101,6 @@ for ($i = 0; $i < count($wordsArray); $i++) {
     }
     echo "the formated string ".$formateStr."<br>";
 }
-//array = [];
-//for (i = 0; i < array.len; i ++){
-//
-//    wordCheck = array[i];
-//    for (x = 0; x < wordCheck.len; x ++){
-//        chrCheck = wordCheck[x]
-//
-//        for (z = 0; z < array.len; z ++){
-//            chrCheck == array[z]
-//                //call function to check word if it contains chr and then return index number
-//                //call to see if array word contains chr if true index chr index
-//        }
-//    }
-//    //print out in format
-//}
-//
-//function character($chr,$word){
-//
-//}
-
 ?>
 
 <div class="puzzleResult" align="left">
@@ -132,8 +112,11 @@ for ($i = 0; $i < count($wordsArray); $i++) {
 
     for ($input = 0; $input < $rows; $input++) {
         $incrementedValue = $input + 1;
-        echo "$wordsArray[$input]";
-        echo ", &nbsp";
+        if($input === ($rows - 1)){
+            echo $wordsArray[$input]."&nbsp";
+        }else{
+            echo $wordsArray[$input].",&nbsp";
+        }
     }
     ?>
     <br/>
