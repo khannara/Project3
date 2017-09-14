@@ -33,7 +33,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/main_style.css" type="text/css">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><?php
+    ?>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
@@ -42,58 +43,7 @@
 </head>
 <title>Rebus Many-From-A-List</title>
 <body>
-<?php
 
-for ($i = 0; $i < count($wordsArray); $i++) {
-    // Set the source word "input"
-    $sourceWord = $wordsArray[$i];
-
-    $sourceWordCharactersArray = str_split($sourceWord);
-
-    $formateStr = null;
-    $formateStr.= $sourceWord." = ";
-
-//    echo "---- formated String start: ".$formateStr."<br>";
-
-    // Check if any of the characters exist in destination word
-    for ($char = 0; $char < strlen($sourceWord); $char++) {
-
-        $characterCheck = $sourceWordCharactersArray[$char];
-        // Find 'unused' word after source word
-        for ($j = 0; $j < count($wordsArray); $j++) {
-            // If index of array is the same, then it's the same source word so skip to next word
-            if ($i == $j) {
-                continue;
-            }
-            // Set the "destination" word as word to be checked
-            $wordCheck = trim($wordsArray[$j]);
-            // Check if word is still available
-            $wordIsAvailable = $manyFromAListFunctions->isWordAvailable($wordCheck);
-            // If word is available...
-            if ($wordIsAvailable) {
-                // Return index of char if it exist in word, otherwise will get null
-                $indexOfCharInWord = $manyFromAListFunctions->getCharacterIndexInWord($characterCheck, $wordCheck);
-                // If index is found
-                if ($indexOfCharInWord != null) {
-                    // get the length of $wordCheck
-                    $lengthOfWordCheck = strlen($wordCheck);
-
-                    // FOUND MATCH: $indexOfCharInWord/$lengthOfWordCheck ($wordCheck )
-                    $formateStr = $formateStr .= $indexOfCharInWord . "/" . $lengthOfWordCheck . " (" . $wordCheck . ")";
-
-                    if ($char != strlen($sourceWord) - 2)
-                        $formateStr = $formateStr . " + ";
-
-                    // Go to next letter
-                    break;
-                }
-            }
-
-        }
-    }
-    echo $formateStr."<br>";
-}
-?>
 
 <div class="puzzleResult" align="left">
     <h3><b>Input Word List:</b></h3>
@@ -114,6 +64,59 @@ for ($i = 0; $i < count($wordsArray); $i++) {
     <br/>
     <h3><b>Puzzles</b></h3>
     <br/>
+    <?php
+
+    for ($i = 0; $i < count($wordsArray); $i++) {
+        // Set the source word "input"
+        $sourceWord = $wordsArray[$i];
+
+        $sourceWordCharactersArray = str_split($sourceWord);
+
+        $formateStr = null;
+        $formateStr.= $sourceWord." = ";
+
+//    echo "---- formated String start: ".$formateStr."<br>";
+
+        // Check if any of the characters exist in destination word
+        for ($char = 0; $char < strlen($sourceWord); $char++) {
+
+            $characterCheck = $sourceWordCharactersArray[$char];
+            // Find 'unused' word after source word
+            for ($j = 0; $j < count($wordsArray); $j++) {
+                // If index of array is the same, then it's the same source word so skip to next word
+                if ($i == $j) {
+                    continue;
+                }
+                // Set the "destination" word as word to be checked
+                $wordCheck = trim($wordsArray[$j]);
+                // Check if word is still available
+                $wordIsAvailable = $manyFromAListFunctions->isWordAvailable($wordCheck);
+                // If word is available...
+                if ($wordIsAvailable) {
+                    // Return index of char if it exist in word, otherwise will get null
+                    $indexOfCharInWord = $manyFromAListFunctions->getCharacterIndexInWord($characterCheck, $wordCheck);
+                    // If index is found
+                    if ($indexOfCharInWord != null) {
+                        // get the length of $wordCheck
+                        $lengthOfWordCheck = strlen($wordCheck);
+
+                        // FOUND MATCH: $indexOfCharInWord/$lengthOfWordCheck ($wordCheck )
+                        $formateStr = $formateStr .= $indexOfCharInWord . "/" . $lengthOfWordCheck . " (" . $wordCheck . ")";
+
+                        if ($char != strlen($sourceWord) - 2)
+                            $formateStr = $formateStr . " + ";
+
+                        // Go to next letter
+                        break;
+                    }
+                }
+
+            }
+        }
+        echo $formateStr."<br>";
+    }
+    ?>
+
 
 </div>
 </body>
