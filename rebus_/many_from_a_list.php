@@ -27,9 +27,8 @@ require('session_validation.php');
 <div>
     <form method="post" action="generate_many_from_a_list.php">
         <div class="container">
-                <textarea class="form-control" rows="10" id="input" name="wordInput"></textarea>
-
-            <br>
+            <textarea class="form-control" rows="10" id="input" name="wordInput"></textarea>
+            <br/>
             <div style="text-align:center">
                 <input class="main-buttons" type="submit" value="Show me.."/>
             </div>
