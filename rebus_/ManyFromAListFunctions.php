@@ -14,20 +14,16 @@ class ManyFromAListFunctions
 
     function getCharacterIndexInWord($char, $word)
     {
-//        var_dump($char,$word);
-//        echo "<br> ------------------ char: ".$char." word: ".$word;
         $this->wordProcessor->setWord($word, "telugu");
         $wordContainsChar = $this->wordProcessor->containsChar($char);
-//        echo "<br>WORD CONTAINS: ".$wordContainsChar."<br>";
         if ($wordContainsChar) {
-//            echo "in if of word contians<br>";
             // Save this word to array
             array_push($this->foundWords, $word);
 
             $wordArray = str_split($word);
-            for ($character = 1; $character <= strlen($word) + 1; $character++) {
+            for ($character = 1; $character < strlen($word); $character++) {
                 if ($char == $wordArray[$character])
-                    return $character;
+                    return $character + 1;
             }
         }
 
