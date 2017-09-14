@@ -261,7 +261,6 @@
     text-align: center;
 }
 
-html,
 body {
     width: 100%;
 }
@@ -571,4 +570,8 @@ img {
     background-image: url("../pic/mask1.png");
     height: 150px;
     width: 150px;
+}
+
+.puzzleResult {
+    margin-left: 85px;
 }
